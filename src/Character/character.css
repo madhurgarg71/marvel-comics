@@ -1,0 +1,40 @@
+.character-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+
+.character {
+  position: relative;
+  padding: 10px;
+}
+
+.character.active .character-img {
+  border: 4px solid rgb(43, 138, 240);
+}
+
+.character-active-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 120px;
+  height: 120px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+}
+
+.character-active-icon svg {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.character-active-icon svg polyline {
+  stroke: rgb(43, 138, 240);
+  stroke-width: 1.5;
+}

@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: #ed1d25;
+  color: white;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.828);
+}
+
+header .search {
+  width: 40%;
+}
+
+header .search input {
+  padding: 15px;
+  width: 100%;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: #fff;
+  font-size: 16px;
+}

@@ -1,24 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import CharactersList from "./CharactersList/CharactersList";
+import { ComicsList } from "./ComicsList/ComicsList";
+import Header from "./Header/Header";
+import "./app.css";
+import { useState } from "react";
+import { AppContext } from "./context";
+import { Character } from "./schema/characters";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { useDebounce } from "./utils";
+
+const queryClient = new QueryClient();
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [activeCharacters, setActiveCharacters] = useState<Character[]>([]);
+  const [activePage, setActivePage] = useState(1);
+  const debouncedSearchQuery = useDebounce(searchQuery, 500);
+
+  console.log(searchQuery, activeCharacters);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <QueryClientProvider client={queryClient}>
+        <AppContext.Provider
+          value={{
+            searchQuery,
+            debouncedSearchQuery,
+            setSearchQuery,
+            activeCharacters,
+            setActiveCharacters,
+            activePage,
+            setActivePage,
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <Header />
+          <div className="content">
+            <CharactersList />
+            <ComicsList />
+          </div>
+        </AppContext.Provider>
+      </QueryClientProvider>
     </div>
   );
 }
