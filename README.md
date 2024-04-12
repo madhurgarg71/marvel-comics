@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Marvel comics
+<img width="1436" alt="image" src="https://github.com/madhurgarg71/marvel-comics/assets/7683225/c398b850-e175-4303-860c-35e486d433b2">
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
